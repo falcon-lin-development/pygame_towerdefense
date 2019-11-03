@@ -64,15 +64,15 @@ class Tower(DynamicItem):
             self.upgrade_cost = self.cost * 5
         elif level == 2:
             self.cost = self.upgrade_cost
-            self.upgrade_cost = self.cost * 5
-            self.bullet[0] *= 3  # dmg
+            self.upgrade_cost = self.cost * 3
+            self.bullet[0] *= 4  # dmg
             self.attkFreq /= 1.25
             self.CD = self._calcCD(self.attkFreq)
             self.name = self.name[:-3] + "Lv2"
         elif level == 3:
             self.cost = self.upgrade_cost
             self.upgrade_cost = "Highest LV"
-            self.bullet[0] *= 5
+            self.bullet[0] *= 3
             self.attkFreq /= 1.25
             self.CD = self._calcCD(self.attkFreq)
             self.attk_range += 1

@@ -447,6 +447,7 @@ LEVEL_UP = 69
 
         # 2 cycles
         elif command == RETURN_FROM_GAME:
+            self.save_game()
             self.post_request((RETURN, None))
             self.sound.stop_bg()
             layer = MainMenu()

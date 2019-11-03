@@ -15,6 +15,7 @@ done    10) sounds
 done    11) testing
 done    12) distinguish between one cycle and two cycles commands
 done    13) rewrite all doc and comment block
+    14）redo testing afterward
 
 Coming soon
 done    1) command communication design
@@ -320,10 +321,10 @@ TOWER_DIM = 20, 20  # by default
 DMG_TOWER = 1
 CC_TOWER = 2
 
-DMG_BULLET_LV1 = 10, 20, None, (4, 4), DMG_BULLET_LV1_IMG  # dmg, vel, cc, dim, image
-DMG_TOWER_LV1 = 10, DMG_BULLET_LV1, 0.4, 2, "Tower Lv1", DMG_TOWER_IMG  # cost, bullet, attkFreq(sec), range, name, img
+DMG_BULLET_LV1 = 25, 20, None, (4, 4), DMG_BULLET_LV1_IMG  # dmg, vel, cc, dim, image
+DMG_TOWER_LV1 = 15, DMG_BULLET_LV1, 0.4, 2, "Tower Lv1", DMG_TOWER_IMG  # cost, bullet, attkFreq(sec), range, name, img
 
-CC_BULLET_LV1 = 8, 25, None, (4, 4), CC_BULLET_LV1_IMG
+CC_BULLET_LV1 = 18, 25, None, (4, 4), CC_BULLET_LV1_IMG
 CC_TOWER_LV1 = 30, CC_BULLET_LV1, 0.3, 3, "Long Range Tower Lv1", CC_TOWER_IMG
 
 #################################################################################
@@ -335,11 +336,11 @@ KNIGHT = "2"
 DRAGON_KNIGHT = "3"
 BOSS = "4"
 
-WARRIOR_LV1_INFO = [1, 20, 5, None, 100, "Warrior LV1", WARRIOR_LV1_IMG]  # prize, armor, vel, cc, health, name, img
-KNIGHT_LV1_INFO = [2, 25, 7, None, 80, "Knight LV1", KNIGHT_LV1_IMG]
-DRAGON_KNIGHT_LV1_INFO = [3, 50, 8, None, 120, "Dragon Knight LV1", DRAGON_KNIGHT_LV1_IMG]
+WARRIOR_LV1_INFO = [3, 20, 4, None, 100, "Warrior LV1", WARRIOR_LV1_IMG]  # prize, armor, vel, cc, health, name, img
+KNIGHT_LV1_INFO = [6, 25, 5, None, 80, "Knight LV1", KNIGHT_LV1_IMG]
+DRAGON_KNIGHT_LV1_INFO = [9, 50, 7, None, 120, "Dragon Knight LV1", DRAGON_KNIGHT_LV1_IMG]
 
-BOSS_LV1_INFO = [10, 70, 3, None, 400, "TITAN LV1", TITAN_LV1_IMG]
+BOSS_LV1_INFO = [20, 70, 4, None, 400, "TITAN LV1", TITAN_LV1_IMG]
 
 ##################################################################################
 
