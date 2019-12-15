@@ -1,8 +1,8 @@
 import sys
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense')
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4')
 import os
-os.chdir("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4")
+os.chdir("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4")
 from creep import *
 import unittest
 import pygame

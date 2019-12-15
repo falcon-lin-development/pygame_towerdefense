@@ -1,6 +1,6 @@
 import sys
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense')
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4')
 from inp_devices import KeyboardCommand, MouseCommand
 import inp_devices as inpd
 from config import KEYBOARD

@@ -1,8 +1,8 @@
 import sys
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense')
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4')
 import os
-os.chdir("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4")
+os.chdir("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4")
 from game import *
 from menu import MainMenu, SettingMenu
 from gamepanel import GamePanel
@@ -77,12 +77,12 @@ SET_VOLUME = 6
         key_command, click_command, mouse_pos = None, None, (0,0)
         self.assertTrue(test.run(key_command, click_command, mouse_pos))
 
-        path = "/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"
+        path = "/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"
         if os.path.isfile(path):
             os.remove(path)
         test.handle_command(c2)
         expect = True
-        result = os.path.isfile("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt")
+        result = os.path.isfile("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt")
         self.assertTrue(expect == result, "{0}\n{1}".format(expect, result))
 
         # test new layer

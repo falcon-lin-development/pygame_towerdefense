@@ -1,8 +1,8 @@
 import sys
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense')
-sys.path.append('/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense')
+sys.path.append('/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4')
 import os
-os.chdir("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4")
+os.chdir("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4")
 from gamepanel import *
 import unittest
 import pygame
@@ -39,10 +39,10 @@ class Test_Game(unittest.TestCase):
     def test_save_game(self):
 
         # create tower and save
-        if os.path.isfile("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"):
-            os.remove("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt")
+        if os.path.isfile("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"):
+            os.remove("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt")
         self.test.save_game()
-        self.assertTrue(os.path.isfile("/Users/alohahawk/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"))
+        self.assertTrue(os.path.isfile("/Users/Falcon/Downloads/Game/Pygame_towerdefense/ver1.4/data/saved_game.txt"))
 
     def test_run(self):
 

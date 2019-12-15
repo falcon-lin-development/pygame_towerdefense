@@ -470,10 +470,10 @@ class PurchaseMenu(Menu):
         super().__init__()
         self.dim = self.width, self.height = dim
         self.contents = {
-            "DMG Tower Lv1": (bt.DMGTower(self.BUTTON_DIM, "Type1 Tower", (PURCHASE, DMG_TOWER)), \
+            "DMG Tower Lv1": (bt.DMGTower(self.BUTTON_DIM, "DMG Tower Lv1", (PURCHASE, DMG_TOWER)), \
                               (self.BUTTON_X_CUT + self.BUTTON_DISTANCE, self.BUTTON_Y_CUT + self.BUTTON_GAP),
                               self.BUTTON_DIM),
-            "CC Tower Lv1": (bt.CCTower(self.BUTTON_DIM, "Type2 Tower", (PURCHASE, CC_TOWER)), \
+            "CC Tower Lv1": (bt.CCTower(self.BUTTON_DIM, "Ranged Tower Lv1", (PURCHASE, CC_TOWER)), \
                              (self.BUTTON_X_CUT + 2 * self.BUTTON_DISTANCE + self.BUTTON_WIDTH,
                               self.BUTTON_Y_CUT + self.BUTTON_GAP), self.BUTTON_DIM),
             "exit": (bt.Exit((100, 40), "Return",(CHANGE_MENU, (LAYER_IN_GAME_MENU, None))), (680, 940), (100, 40)),

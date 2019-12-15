@@ -97,7 +97,8 @@ class Button(Bar):
     def _make_hover_image(self):
         font_size = 20
         font = pygame.font.SysFont("calibri", font_size)
-        text = font.render(str(self.v), True, BLUE, None)
+        # text = font.render(str(self.v), True, BLUE, None)
+        text = font.render("hover", True, BLUE, None)
         return text
 
     # game function

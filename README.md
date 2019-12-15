@@ -9,6 +9,7 @@ Image:
 contributed by Sol Lin, Philip Chan, Falcon Lin
 
 
-Developer Notes:
-//range unit
-//setting bug
+Upcoming features:
+// ranged unit
+// more choices of tower
+// button hover image
