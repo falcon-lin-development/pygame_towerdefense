@@ -10,6 +10,6 @@ contributed by Sol Lin, Philip Chan, Falcon Lin
 
 
 Upcoming features:
-// ranged unit
-// more choices of tower
-// button hover image
+- ranged unit
+- more choices of tower
+- button hover image
