@@ -1,15 +1,9 @@
-@Copyright
-Developer:
-Falcon Lin
+Usage:
 
-Soundtracks
-Author does not own the sound tracks. They are arbitrarily downloaded online for decoration purpose.
+```
+$ git clone <repository_url>
+$ cd ./pygame_towerdefense/<version file name>
+$ python3 main.py
+```
 
-Image:
-contributed by Sol Lin, Philip Chan, Falcon Lin
-
-
-Upcoming features:
-- ranged unit
-- more choices of tower
-- button hover image
+Enjoy
