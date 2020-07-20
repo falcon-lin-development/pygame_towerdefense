@@ -57,7 +57,7 @@ class GamePanel(Menu):
         # load data
         self._load_map(map_file)
         self._load_wave(wave_file)
-        self._load_image("")
+        self._load_image()
         self._load_sounds()
         self.build_layout()
         self.sound.play_bg()
@@ -203,7 +203,7 @@ BOARDER = 'x'
         print("creep initialized")
         return
 
-    def _load_image(self, paths):
+    def _load_image(self):
         """
 GRASS = '0'
 PATH_H = '1'
@@ -234,7 +234,8 @@ BOARDER = 'x'
                 PATH_SIDE: pygame.image.load(PATH_SIDE_IMG),
                 BOARDER: pygame.image.load(BOARDER_IMG),
             }
-        except:
+        except Exception as e:
+            print(e)
             font = pygame.font.SysFont("calibri", 20, False, True)
             self.grid_images = {
                 GRASS: font.render(GRASS, True, BLUE, None),

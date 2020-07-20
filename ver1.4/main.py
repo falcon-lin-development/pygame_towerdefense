@@ -16,8 +16,8 @@ from inp_devices import KeyboardCommand, MouseCommand
 from config import *
 import os
 
-assert os.getcwd()[-27:] == "/Pygame_towerdefense/ver1.4", \
-    "Invalid location: {0}\nExpected: {1}".format(os.getcwd(), "./Pygame_towerdefense/ver1.4")
+assert "/".join(os.getcwd().split('/')[-2:]) == "pygame_towerdefense/ver1.4", \
+    "Invalid location: {0}\nExpected: {1}".format(os.getcwd(), "./pygame_towerdefense/ver1.4")
 
 pygame.init()
 

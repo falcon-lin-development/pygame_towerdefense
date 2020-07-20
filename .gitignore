@@ -5,3 +5,4 @@ ver1.3
 __pycache__/
 ps/
 .DS_Store
+.vscode

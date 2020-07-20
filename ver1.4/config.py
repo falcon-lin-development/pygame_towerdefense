@@ -70,8 +70,8 @@ BG_MUSIC = "data/bg_music.wav"
 HIT_SOUND = "data/hit.wav"
 
 # IMG
-IMG_FILE = "../ps/"
-NO_IMG = IMG_FILE + "display/no_image.png"
+IMG_FILE = "../images/"
+NO_IMG = IMG_FILE + "../images/display/no_image.png"
 
 # Main Menu Img
 
@@ -89,10 +89,10 @@ CC_BULLET_LV1_IMG = IMG_FILE + "bullets/Bullet.png"
 CC_TOWER_IMG = IMG_FILE + "towers/cc_t_lv1.png"
 
 # Creeps
-WARRIOR_LV1_IMG = IMG_FILE + "creep/warrior_lv1.png"
-KNIGHT_LV1_IMG = IMG_FILE + "creep/knight_lv1.png"
-DRAGON_KNIGHT_LV1_IMG = IMG_FILE + "creep/dragon_knight_lv1.png"
-TITAN_LV1_IMG = IMG_FILE + "creep/Titan_lv1.png"
+WARRIOR_LV1_IMG = IMG_FILE + "creeps/warrior_lv1.png"
+KNIGHT_LV1_IMG = IMG_FILE + "creeps/knight_lv1.png"
+DRAGON_KNIGHT_LV1_IMG = IMG_FILE + "creeps/dragon_knight_lv1.png"
+TITAN_LV1_IMG = IMG_FILE + "creeps/Titan_lv1.png"
 
 # In game menu img
 PURCHASE_BUTTON_IMG = ""
@@ -115,8 +115,8 @@ TURN_TR_IMG = IMG_FILE + "tiles/road_TR.png"
 TURN_BL_IMG = IMG_FILE + "tiles/road_BL.png"
 TURN_BR_IMG = IMG_FILE + "tiles/road_BR.png"
 
-SPAWN_IMG = IMG_FILE + "tiles/spawn.png"
-GOAL_IMG = IMG_FILE + "tiles/goal.png"
+SPAWN_IMG = IMG_FILE + "tiles/rock.png"
+GOAL_IMG = IMG_FILE + "tiles/rock.png"
 PATH_SIDE_IMG = IMG_FILE + "tiles/rock.png"
 BOARDER_IMG = IMG_FILE + "tiles/rock.png"
 ###################################################################################

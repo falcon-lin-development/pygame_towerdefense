@@ -111,7 +111,8 @@ def save_load_image(path):
     """
     try:
         return pygame.image.load(path)
-    except pygame.error:
+    except pygame.error as e:
+        print(e)
         return pygame.image.load(NO_IMG)
 
 
