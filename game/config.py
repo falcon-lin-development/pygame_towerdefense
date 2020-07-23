@@ -62,7 +62,6 @@ COLOR_FFDEAD = 255, 222, 173
 # files
 
 GAME_MAP = 'game/map/map.txt'
-print(abspath(GAME_MAP))
 GAME_WAVE = 'game/map/wave.txt'
 
 NEW_GAME_FILE = "game/data/new_game.txt"
