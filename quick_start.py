@@ -16,6 +16,6 @@ if (util.find_spec("pygame") is None):
     os.system(f"{sys.prefix}/bin/pip install -r requirements.txt")
 
 # run the game
-run_game = importlib.import_module('game.main')
+# run_game = importlib.import_module('game.main')
 
 
