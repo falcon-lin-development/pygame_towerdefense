@@ -6,10 +6,9 @@ done    1) different types of bullet will come up sooner or later
     2) Tower special effect will be implemented
 done   3) activate implementation is weird
 """
-from item import DynamicItem
-from functions import save_load_image, calcDistance, calcAlignPos, find_point_loc
-from functions import calcNextPos, isCollide, calcAlignCenter, calcVertices, calc_abs_pos, calcAlignImgPos
-from config import *
+from game.item import DynamicItem
+from game.functions import save_load_image, calcDistance, calcAlignPos, find_point_loc, calcNextPos, isCollide, calcAlignCenter, calcVertices, calc_abs_pos, calcAlignImgPos
+from game.config import *
 import pygame
 import math
 
@@ -47,11 +46,13 @@ class Tower(DynamicItem):
     # initialization functions
     def _type_construction(self, tower_type):
         if tower_type == CC_TOWER:
-            self.cost, bullet, self.attkFreq, self.attk_range, self.name, img = list(CC_TOWER_LV1)
+            self.cost, bullet, self.attkFreq, self.attk_range, self.name, img = list(
+                CC_TOWER_LV1)
             self.bullet = list(bullet)
             self.image = save_load_image(img)
         elif tower_type == DMG_TOWER:
-            self.cost, bullet, self.attkFreq, self.attk_range, self.name, img = list(DMG_TOWER_LV1)
+            self.cost, bullet, self.attkFreq, self.attk_range, self.name, img = list(
+                DMG_TOWER_LV1)
             self.bullet = list(bullet)
             self.image = save_load_image(img)
         else:
@@ -81,7 +82,7 @@ class Tower(DynamicItem):
         else:
             raise Exception("illegal level up: {0}".format(level))
 
-    def _calcCD(self, freq, frame=FRAME): # in terms of frames/movement
+    def _calcCD(self, freq, frame=FRAME):  # in terms of frames/movement
         '''
         1s = 1000ms = 30f
         input: s/num
@@ -208,6 +209,7 @@ class Projectile(DynamicItem):
     to: a creep instance
     info: bullet info
     """
+
     def __init__(self, fr, to, info):
         # fixed info
         self.dmg, self.vel, self.cc, self.dim = info[:-1]
@@ -258,7 +260,8 @@ class Projectile(DynamicItem):
     # draw func
     def draw(self, win, offset):
         """dynamic offset"""
-        abs_pos = calc_abs_pos(calcAlignImgPos(self.get_relCenter(), self.image), offset)
+        abs_pos = calc_abs_pos(calcAlignImgPos(
+            self.get_relCenter(), self.image), offset)
         win.blit(self.image, abs_pos)
 
     def draw_box(self, win, offset):
@@ -270,7 +273,3 @@ class Projectile(DynamicItem):
     def __str__(self):
         return "Bullet: fr: {0}|to: {1}".format(self.state[0], self.target.get_relCenter())
     __repr__ = __str__
-
-
-
-

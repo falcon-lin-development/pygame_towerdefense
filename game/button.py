@@ -6,10 +6,10 @@ developer Note:
 on it    1) can further abstract away all buttons
     2) message box feature
 """
-from item import StaticItem
+from game.item import StaticItem
 import pygame
-from config import *
-from functions import calcAlignImgPos, calc_abs_pos
+from game.config import *
+from game.functions import calcAlignImgPos, calc_abs_pos
 
 
 class Bar(StaticItem):
@@ -20,6 +20,7 @@ class Bar(StaticItem):
     display_name: str or integer that will be displayed On the bar
     value(optional): the value contain inside the object
     """
+
     def __init__(self, dim, display_name, value=None):
         self.dim = self.width, self.height = dim
         self.display_name = display_name
@@ -33,25 +34,31 @@ class Bar(StaticItem):
     def make_image(self):
         font_size = 20
         font = pygame.font.SysFont("calibri", font_size)
-        text = font.render(str(self.display_name) + " : " + str(self.v), True, BLUE, None)
+        text = font.render(str(self.display_name) + " : " +
+                           str(self.v), True, BLUE, None)
         return text
 
     # draw function
     def draw(self, surface, offset):
         self.draw_bg(surface, offset)
-        abs_pos = calc_abs_pos(calcAlignImgPos((self.width//2, self.height//2), self.image), offset)
+        abs_pos = calc_abs_pos(calcAlignImgPos(
+            (self.width//2, self.height//2), self.image), offset)
         surface.blit(self.image, abs_pos)
 
     def draw_box(self, surface, offset):
         # blit rect, blit text
-        pygame.draw.rect(surface, BLUE, (offset[0], offset[1], self.width, self.height), 1)
-        abs_pos = calc_abs_pos(calcAlignImgPos((self.width // 2, self.height // 2), self.image), offset)
+        pygame.draw.rect(
+            surface, BLUE, (offset[0], offset[1], self.width, self.height), 1)
+        abs_pos = calc_abs_pos(calcAlignImgPos(
+            (self.width // 2, self.height // 2), self.image), offset)
         surface.blit(self.image, abs_pos)
 
     def draw_bg(self, surface, offset):
         border = 5
-        pygame.draw.rect(surface, COLOR_8B4513, (offset[0], offset[1], self.width, self.height), 0)
-        pygame.draw.rect(surface, COLOR_FFDEAD, (offset[0]+border, offset[1]+border, self.width-2*border, self.height-2*border), 0)
+        pygame.draw.rect(surface, COLOR_8B4513,
+                         (offset[0], offset[1], self.width, self.height), 0)
+        pygame.draw.rect(surface, COLOR_FFDEAD, (
+            offset[0]+border, offset[1]+border, self.width-2*border, self.height-2*border), 0)
 
 
 class Text(Bar):
@@ -63,6 +70,7 @@ class Text(Bar):
     bold(optional): bool value for bold text
     italic(optional): bool value for italic text
     """
+
     def __init__(self, font_size, text, color=BLUE, bold=False, italic=False):
         font = pygame.font.SysFont("calibri", font_size, bold, italic)
         self.image = font.render(str(text), True, color, None)
@@ -82,6 +90,7 @@ class Button(Bar):
 
     value: a command tuple (COMMAND, INFO) for the onclick function to return
     """
+
     def __init__(self, dim, display_name, value):
         super().__init__(dim, display_name, value)
         self.hover_image = self._make_hover_image()
@@ -118,16 +127,19 @@ class Button(Bar):
         if self.hover:
             super().draw_bg(surface, offset)
             # blit hover image
-            abs_pos = calc_abs_pos(calcAlignImgPos((self.width // 2, self.height // 2), self.hover_image), offset)
+            abs_pos = calc_abs_pos(calcAlignImgPos(
+                (self.width // 2, self.height // 2), self.hover_image), offset)
             surface.blit(self.hover_image, abs_pos)
         else:
             super().draw(surface, offset)
 
     def draw_box(self, surface, offset):
         if self.hover:
-            pygame.draw.rect(surface, BLUE, (offset[0], offset[1], self.width, self.height), 1)
+            pygame.draw.rect(
+                surface, BLUE, (offset[0], offset[1], self.width, self.height), 1)
             # blit hover image
-            abs_pos = calc_abs_pos(calcAlignImgPos((self.width // 2, self.height // 2), self.hover_image), offset)
+            abs_pos = calc_abs_pos(calcAlignImgPos(
+                (self.width // 2, self.height // 2), self.hover_image), offset)
             surface.blit(self.hover_image, abs_pos)
         else:
             super().draw_box(surface, offset)
@@ -213,7 +225,7 @@ class SetVolume(Button):
         text = font.render(display, True, BLUE, None)
         return text
 
-    def change_key(self, state = None):
+    def change_key(self, state=None):
         if state:
             self.state = state
             self.image = self.make_image()
@@ -222,6 +234,8 @@ class SetVolume(Button):
             self.image = self.make_image()
 
 # in game menu
+
+
 class Purchase(Button):
     pass
 
@@ -282,7 +296,8 @@ class TowerLevelUp(Button):
     def make_image(self):
         font_size = 20
         font = pygame.font.SysFont("calibri", font_size)
-        text = font.render(str("Level_up cost") + " : " + str(self.display_name), True, BLUE, None)
+        text = font.render(str("Level_up cost") + " : " +
+                           str(self.display_name), True, BLUE, None)
         return text
 
 
@@ -312,6 +327,3 @@ class TowerAcckFreq(Bar):
 
 class TowerRange(Bar):
     pass
-
-
-

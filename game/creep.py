@@ -4,10 +4,10 @@ implementation of creep and creep constructor
 developer Note:
 
 """
-from item import DynamicItem
-from functions import save_load_image, calcAlignPos, isInside, calcNextPos, calcAlignCenter, calcVertices
-from functions import calc_abs_pos, calcAlignImgPos
-from config import *
+from game.item import DynamicItem
+from game.functions import save_load_image, calcAlignPos, isInside, calcNextPos, calcAlignCenter, calcVertices
+from game.functions import calc_abs_pos, calcAlignImgPos
+from game.config import *
 import pygame
 
 
@@ -32,10 +32,12 @@ class Creep(DynamicItem):
         self.level = level
         self._levelize()
 
-        self.hp = self.health  # health: the upper limit of creep's health ｜ hp: the current creep's health
+        # health: the upper limit of creep's health ｜ hp: the current creep's health
+        self.hp = self.health
 
         # game info
-        cx, cy = self.path[0]  # creep spawn correspond to the first xy-coordinates in its path
+        # creep spawn correspond to the first xy-coordinates in its path
+        cx, cy = self.path[0]
         x, y = calcAlignPos((cx, cy), self.dim)
         self.startState = (x, y), self.path[1:]  # dim,  remaining_path
         self.start()
@@ -87,7 +89,8 @@ class Creep(DynamicItem):
                 cx, cy = self.get_relCenter()
                 tx, ty = t
                 cxNew, cyNew = calcNextPos((cx, cy), (tx, ty), self.vel)
-                posNew = calcAlignPos((cxNew, cyNew), (self.width, self.height))
+                posNew = calcAlignPos(
+                    (cxNew, cyNew), (self.width, self.height))
                 return (posNew, p), True
 
         else:
@@ -112,7 +115,8 @@ class Creep(DynamicItem):
     # draw function
     def draw(self, win, offset):
         """offset is dynamic offset"""
-        abs_pos = calc_abs_pos(calcAlignImgPos(self.get_relCenter(), self.image), offset)
+        abs_pos = calc_abs_pos(calcAlignImgPos(
+            self.get_relCenter(), self.image), offset)
         win.blit(self.image, abs_pos)
         self.drawHP(win, offset)
 

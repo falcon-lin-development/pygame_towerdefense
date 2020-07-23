@@ -1,7 +1,7 @@
 """item class
 these classes should not be created directly
 """
-from functions import isInside
+from game.functions import isInside
 
 
 class StaticItem(object):

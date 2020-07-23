@@ -2,7 +2,7 @@
 pyfame.mixer.Sound handler
 """
 
-from config import *
+from game.config import *
 import pygame
 
 if __name__ == "__main__":

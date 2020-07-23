@@ -6,10 +6,10 @@ developer Note
 done    1) simplify structure
     2) add a waiting command_list for optimization purpose (RUN_BY_LAYER)
 """
-from config import *
-from sound import Py_Sound
-from gamepanel import loader
-from menu import MainMenu, SettingMenu, LicenseMenu, TutorialMenu
+from game.config import *
+from game.sound import Py_Sound
+from game.gamepanel import loader
+from game.menu import MainMenu, SettingMenu, LicenseMenu, TutorialMenu
 import pygame
 
 

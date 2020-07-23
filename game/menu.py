@@ -9,12 +9,12 @@ done 3) license
 done 5) hover checking duplicates here / may put it to the game run
 
 """
-from functions import isInside, calcVertices
-from functions import calc_rel_pos, find_point_loc, calc_offset
+from game.functions import isInside, calcVertices
+from game.functions import calc_rel_pos, find_point_loc, calc_offset
 import math
-import button as bt
+import game.button as bt
 import pygame
-from config import *
+from game.config import *
 
 
 
@@ -271,8 +271,8 @@ class SettingMenu(Menu):
 
     def _setting_menu_commands(self, c):
         # import ver setter
-        from game import set_var as game_set_var
-        from inp_devices import set_var as inp_set_var
+        from game.game import set_var as game_set_var
+        from game.inp_devices import set_var as inp_set_var
 
         command, target = c
         # one cycle

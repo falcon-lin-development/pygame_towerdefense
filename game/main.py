@@ -11,13 +11,14 @@ key: keyboard inputs processor object
 mouse: mouse inputs processor object
 """
 import pygame
-from game import Game
-from inp_devices import KeyboardCommand, MouseCommand
-from config import *
+from . import inp_devices
+from game.game import Game
+from game.inp_devices import KeyboardCommand, MouseCommand
+from game.config import *
 import os
 
-assert "/".join(os.getcwd().split('/')[-2:]) == "pygame_towerdefense/ver1.4", \
-    "Invalid location: {0}\nExpected: {1}".format(os.getcwd(), "./pygame_towerdefense/ver1.4")
+# assert "/".join(os.getcwd().split('/')[-2:]) == "pygame_towerdefense/ver1.4", \
+#     "Invalid location: {0}\nExpected: {1}".format(os.getcwd(), "./pygame_towerdefense/ver1.4")
 
 pygame.init()
 

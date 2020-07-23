@@ -2,7 +2,7 @@
 implementation of all universal helper functions
 """
 import pygame
-from config import *
+from game.config import *
 
 
 # Item function
@@ -72,9 +72,10 @@ def calcNextPos(c1, c2, vel):
     x1, y1 = c1
     x2, y2 = c2
     disTravel = vel
-    disTotal = calcDistance((x1, y1),(x2, y2))
+    disTotal = calcDistance((x1, y1), (x2, y2))
     disLeft = disTotal - disTravel
-    xNew, yNew = int((x1*disLeft + x2*disTravel)/disTotal), int((y1*disLeft + y2*disTravel)/disTotal)
+    xNew, yNew = int((x1*disLeft + x2*disTravel) /
+                     disTotal), int((y1*disLeft + y2*disTravel)/disTotal)
     return xNew, yNew
 
 
@@ -174,7 +175,8 @@ def find_point_loc(point, layout=None):
         if row < len(layout) and col < len(layout[0]):
             return row, col
         else:
-            raise Exception("{0} is not in the layout {1}".format(point, layout))
+            raise Exception(
+                "{0} is not in the layout {1}".format(point, layout))
     else:
         x, y = point
         col = x // GRID_WIDTH
@@ -194,8 +196,3 @@ def find_grid_pos(location, layout=None):
         assert row < len(layout), "Invalid location: {0}".format(location)
         assert col < len(layout[0]), "Invalid location: {0}".format(location)
     return col * GRID_WIDTH, row * GRID_HEIGHT
-
-
-
-
-

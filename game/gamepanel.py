@@ -11,13 +11,12 @@ done 2) simplify structure
 further simplify everything
 done 1) selection mode
 """
-from config import *
-from menu import Menu, PurchaseMenu, TowerMenu, MainMenu, GameMenu
-from tower import construct_tower
-from creep import construct_creep
-from functions import calc_offset, calc_rel_pos, find_point_loc, isInside, calcVertices
-from functions import calcAlignCenter, find_grid_pos, calc_abs_pos
-from sound import Py_Sound
+from game.config import *
+from game.menu import Menu, PurchaseMenu, TowerMenu, MainMenu, GameMenu
+from game.tower import construct_tower
+from game.creep import construct_creep
+from game.functions import calc_offset, calc_rel_pos, find_point_loc, isInside, calcVertices, calcAlignCenter, find_grid_pos, calc_abs_pos
+from game.sound import Py_Sound
 import os
 import pygame
 
@@ -73,8 +72,10 @@ class GamePanel(Menu):
                 if i <= 2:
                     menu_data.append(int(line.strip()))
                 else:
-                    tower_name, tower_type, x, y, level = line.strip(" ").split(" ")
-                    map_data.append((tower_name, int(tower_type), (int(x), int(y)), int(level)))
+                    tower_name, tower_type, x, y, level = line.strip(
+                        " ").split(" ")
+                    map_data.append(
+                        (tower_name, int(tower_type), (int(x), int(y)), int(level)))
 
         self._tem_health, self._tem_money, self._tem_wave_num = menu_data
         self.handle_command((CHANGE_MENU, (LAYER_IN_GAME_MENU, None)))
@@ -154,7 +155,8 @@ BOARDER = 'x'
                 r_row, r_col = row, col + 1
                 b_row, b_col = row + 1, col
                 l_row, l_col = row, col - 1
-                neighbors = [(t_row, t_col), (r_row, r_col), (b_row, b_col), (l_row, l_col)]
+                neighbors = [(t_row, t_col), (r_row, r_col),
+                             (b_row, b_col), (l_row, l_col)]
                 for grid_row, grid_col in neighbors:
                     if (grid_row, grid_col) not in pathway:
                         grid = _map[grid_row][grid_col]
@@ -170,11 +172,13 @@ BOARDER = 'x'
                 else:
                     raise Exception(
                         "Invalid map configuration: current{0}, \ncreepPath{1}".format(current, creepPath))
-            assert creepPath[-1] == end, "creep path is not correctly calculated: {0}|{1}".format(creepPath, end)
+            assert creepPath[-1] == end, "creep path is not correctly calculated: {0}|{1}".format(
+                creepPath, end)
 
             # calc rel centers
             for index, (row, col) in enumerate(creepPath[:]):
-                creepPath[index] = calcAlignCenter(find_grid_pos((row, col), _map), GRID_DIM)
+                creepPath[index] = calcAlignCenter(
+                    find_grid_pos((row, col), _map), GRID_DIM)
 
             # write the result back to the file
             with open(file, "a") as f:
@@ -265,7 +269,8 @@ BOARDER = 'x'
             for n in info:
                 f.write("{0}\n".format(n))
             for name, tower_type, pos, level in towers:
-                f.write("{0} {1} {2} {3} {4}\n".format(name, tower_type, pos[0], pos[1], level))
+                f.write("{0} {1} {2} {3} {4}\n".format(
+                    name, tower_type, pos[0], pos[1], level))
         return True
 
     # game function
@@ -368,7 +373,8 @@ BOARDER = 'x'
             rel_mouse_pos = calc_rel_pos(mouse_pos, offset)
             if isInside(rel_mouse_pos, calcVertices(0, 0, 800, 800)):
                 if self._can_place_tower(rel_mouse_pos):
-                    self.handle_command((SELECTED, (self._selected, rel_mouse_pos)))
+                    self.handle_command(
+                        (SELECTED, (self._selected, rel_mouse_pos)))
                     return self._normal_run(None, mouse_pos, offset)
             else:
                 # return OFF_FOCUS, self
@@ -452,15 +458,18 @@ LEVEL_UP = 69
             self.post_request((RETURN, None))
             self.sound.stop_bg()
             layer = MainMenu()
-            self.post_request((NEW_LAYER, (LAYER_MAIN_MENU, layer, (0,0), MAIN_MENU_DIM)))
+            self.post_request(
+                (NEW_LAYER, (LAYER_MAIN_MENU, layer, (0, 0), MAIN_MENU_DIM)))
 
         # 1 cycle
         elif command == CHANGE_MENU:
             layer_name, data = target
             if layer_name == LAYER_IN_GAME_MENU:
-                tem = GameMenu((self._tem_health, self._tem_money, self._tem_wave_num))
+                tem = GameMenu(
+                    (self._tem_health, self._tem_money, self._tem_wave_num))
             else:
-                towers, (self._tem_health, self._tem_money, self._tem_wave_num) = self.get_data()
+                towers, (self._tem_health, self._tem_money,
+                         self._tem_wave_num) = self.get_data()
                 if layer_name == LAYER_PURCHASE_MENU:
                     tem = PurchaseMenu()
                 elif layer_name == LAYER_TOWER_MENU:
@@ -481,7 +490,8 @@ LEVEL_UP = 69
             wave, i, lv = target
             if self.make_creep_CD <= 0:
                 self.make_creep_CD = 15
-                self.objects["creeps"].append(self._make_creep(wave[i], self.creepPath, lv))
+                self.objects["creeps"].append(
+                    self._make_creep(wave[i], self.creepPath, lv))
                 i += 1
             else:
                 self.make_creep_CD -= 1
@@ -528,7 +538,8 @@ LEVEL_UP = 69
                 else:
                     price = DMG_TOWER_LV1[0]
                 self.pay(price)
-                self.create_tower(tower_type, find_grid_pos(find_point_loc(ref, None), None))
+                self.create_tower(tower_type, find_grid_pos(
+                    find_point_loc(ref, None), None))
             self._selected = None
             self.run = self._normal_run
 
@@ -540,7 +551,8 @@ LEVEL_UP = 69
                 tower_ID = self.layout[loc[0]][loc[1]]
                 self.pay(upgrade_cost)
                 self.contents[tower_ID][0].levelUp()
-                self.post_commands(self.contents[tower_ID][0].do_onclick(1, None, None))
+                self.post_commands(
+                    self.contents[tower_ID][0].do_onclick(1, None, None))
         elif command is None:
             pass
         else:
@@ -602,7 +614,8 @@ LEVEL_UP = 69
                 rel_pos = find_grid_pos((row, col), self.map)
                 blit_pos = calc_abs_pos(rel_pos, offset)
                 # blit rect, blit text
-                pygame.draw.rect(surface, BLUE, (blit_pos[0], blit_pos[1], 20, 20), 1)
+                pygame.draw.rect(
+                    surface, BLUE, (blit_pos[0], blit_pos[1], 20, 20), 1)
                 surface.blit(self.grid_images[grid], blit_pos)
 
     # representation function
@@ -617,7 +630,3 @@ LEVEL_UP = 69
             out += "\n"
         return out
     __repr__ = __str__
-
-
-
-

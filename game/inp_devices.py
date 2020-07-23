@@ -2,8 +2,8 @@
 carefully handle mouse command and keyboard commands
 https://www.pygame.org/docs/ref/mouse.html
 """
-from config import *
-from item import DynamicItem
+from game.config import *
+from game.item import DynamicItem
 
 
 class KeyboardCommand(DynamicItem):

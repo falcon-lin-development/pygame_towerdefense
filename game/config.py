@@ -36,7 +36,11 @@ done    8) setting license
 
 """
 from pygame import K_SPACE, K_w, K_ESCAPE
-
+import os
+from os.path import abspath
+print(os.getcwd())
+print(__file__)
+print( os.path.dirname(__file__))
 ################################################################################
 # general
 DEBUG = True
@@ -60,7 +64,8 @@ COLOR_FFDEAD = 255, 222, 173
 #################################################################################
 # files
 
-GAME_MAP = 'map/map.txt'
+GAME_MAP = './map/map.txt'
+print(abspath(GAME_MAP))
 GAME_WAVE = 'map/wave.txt'
 
 NEW_GAME_FILE = "data/new_game.txt"
