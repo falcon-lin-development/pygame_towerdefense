@@ -264,7 +264,7 @@ BOARDER = 'x'
         towers, info = self.get_data()
         assert isinstance(towers, list)
         assert isinstance(info, tuple)
-        with open("./data/saved_game.txt", "w+") as f:
+        with open("game/data/saved_game.txt", "w+") as f:
             # could be buggy
             for n in info:
                 f.write("{0}\n".format(n))

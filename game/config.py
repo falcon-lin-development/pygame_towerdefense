@@ -64,19 +64,19 @@ COLOR_FFDEAD = 255, 222, 173
 #################################################################################
 # files
 
-GAME_MAP = './map/map.txt'
+GAME_MAP = 'game/map/map.txt'
 print(abspath(GAME_MAP))
-GAME_WAVE = 'map/wave.txt'
+GAME_WAVE = 'game/map/wave.txt'
 
-NEW_GAME_FILE = "data/new_game.txt"
-LOAD_GAME_FILE = "data/saved_game.txt"
+NEW_GAME_FILE = "game/data/new_game.txt"
+LOAD_GAME_FILE = "game/data/saved_game.txt"
 
-BG_MUSIC = "data/bg_music.wav"
-HIT_SOUND = "data/hit.wav"
+BG_MUSIC = "game/data/bg_music.wav"
+HIT_SOUND = "game/data/hit.wav"
 
 # IMG
-IMG_FILE = "../images/"
-NO_IMG = IMG_FILE + "../images/display/no_image.png"
+IMG_FILE = "game/images/"
+NO_IMG = IMG_FILE + "game/images/display/no_image.png"
 
 # Main Menu Img
 
