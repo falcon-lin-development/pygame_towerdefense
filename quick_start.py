@@ -11,11 +11,9 @@ if (not os.path.isdir("./venv")):
 
 # check if pygame exist
 if (util.find_spec("pygame") is None):
-    # os.system("source venv/bin/activate")
-    # os.system("which pip")
-    os.system(f"{sys.prefix}/bin/pip install -r requirements.txt")
+    os.system(f"{os.getcwd()}/venv/bin/pip install -r requirements.txt")
 
-# run the game
+# # run the game
 run_game = importlib.import_module('game.main')
 
 

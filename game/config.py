@@ -38,9 +38,6 @@ done    8) setting license
 from pygame import K_SPACE, K_w, K_ESCAPE
 import os
 from os.path import abspath
-print(os.getcwd())
-print(__file__)
-print( os.path.dirname(__file__))
 ################################################################################
 # general
 DEBUG = True

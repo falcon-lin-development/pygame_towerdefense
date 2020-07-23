@@ -7,11 +7,10 @@ remove_venv() {
 }
 
 create_venv() {
-    
-    pip install virtualenv
+    python3 -m pip install virtualenv
     python3 -m virtualenv venv
     path_to_python=$(which python3)
-    virtualenv -p $path_to_python venv
+    python3 -m virtualenv -p $path_to_python venv
 }
 
 if [ -r "./venv/" ]; then
