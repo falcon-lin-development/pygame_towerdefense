@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "/Users/falcon/PD/pygame_towerdefense/venv/bin/python3.7",
+    // "python.analysis.disabled": [
+    //     "unresolved-import"
+    // ],
+    // "python.jediEnabled": true,
+    "python.envFile": "pygame_towerdefense/.env"
+}

@@ -13,7 +13,7 @@ if (not os.path.isdir("./venv")):
 if (util.find_spec("pygame") is None):
     os.system(f"{os.getcwd()}/venv/bin/pip install -r requirements.txt")
 
-# # run the game
+# run the game
 run_game = importlib.import_module('game.main')
 
 
